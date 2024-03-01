@@ -6,7 +6,7 @@
 
     <groupId>com.thuwsy.aoyou</groupId>
     <artifactId>aoyou-fast</artifactId>
-    <version>${aoyou.version}</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
     <description>父工程，用于管理依赖版本</description>
     <modules>
@@ -14,6 +14,7 @@
         <module>aoyou-support</module>
         <module>aoyou-starter</module>
         <module>aoyou-auth</module>
+        <module>aoyou-user</module>
     </modules>
 
     <properties>
@@ -74,7 +75,68 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.thuwsy.aoyou</groupId>
+                <artifactId>aoyou-common</artifactId>
+                <version>${aoyou.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.thuwsy.aoyou</groupId>
+                <artifactId>aoyou-support</artifactId>
+                <version>${aoyou.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.thuwsy.aoyou</groupId>
+                <artifactId>aoyou-auth</artifactId>
+                <version>${aoyou.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.thuwsy.aoyou</groupId>
+                <artifactId>aoyou-user</artifactId>
+                <version>${aoyou.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
